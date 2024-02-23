@@ -15,6 +15,7 @@ export default function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      setLoading(true)
       const res = await fetch("/api/auth/signup", {
         method: "POST",
         headers: {
@@ -29,6 +30,7 @@ export default function SignUp() {
 
         return;
       }
+      setLoading(false);
       setError(null); 
       navigate('/sign-in');
     } catch (error) {
@@ -53,7 +55,7 @@ export default function SignUp() {
         />
         <input
           type="email"
-          placeholder="mail"
+          placeholder="email"
           className="border p-3 rounded-lg"
           id="email"
           onChange={handleChange}
