@@ -12,6 +12,7 @@ export default function Contact({ listing }) {
       try {
         const res = await fetch(`/api/user/${listing.userRef}`);
         const data = await res.json();
+        // console.log("Landlord:", data); 
         setLandlord(data);
       } catch (error) {
         console.log(error);
